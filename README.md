@@ -1,4 +1,4 @@
-# Theming with Materila UI, Tailwinds and CSS
+# Theming with Material UI, Tailwind and CSS
 
 Base code taken from the example 'dashboard' from https://github.com/mui/material-ui/tree/v5.16.4/docs/data/material/getting-started/templates/dashboard
 
