@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-background: 224, 224, 224, 1;
+  --main-text: 0, 0, 0, 1;
+  --main-button: 66, 165, 245, 1;
+  --button-hover: 186, 104, 200, 1;
+}
+
+:root[data-theme="dark"] {
+  --main-background: 66, 66, 66, 1;
+  --main-text: 224, 224, 224, 1;
+  --main-button: 186, 104, 200, 1;
+  --button-hover: 66, 165, 245, 1;
+}
+
+:root[data-theme="cerys"] {
+  --main-background: 244, 143, 177, 1;
+  --main-text: 4, 20, 140, 1;
+  --main-button: 236, 64, 122, 1;
+  --button-hover: 248, 187, 208, 1;
+}
