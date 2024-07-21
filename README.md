@@ -38,7 +38,7 @@ e.g.
 
 This file contains the main components as well as the MUI theme.
 
-The MUI theme sets the default primary colour and contrasting text colours forom the CSS variables. The theme creation doesn't like accessing a CSS variable directly but is happy to access one inside the rgba function. This is why the colour values are stored in the css file, it does mean everything needs to be wrapped in the rgba() function but being able to use the same colour definitions in both Tailwind CSS and MUI makes it worth while.
+The MUI theme sets the default primary colour and contrasting text colours from the CSS variables. The theme creation doesn't like accessing a CSS variable directly but is happy to access one inside the rgba function. This is why the colour values are stored in the css file as a sequence of values, it does mean everything needs to be wrapped in the rgba() function but being able to use the same colour definitions in both Tailwind CSS and MUI makes it worth while.
 
 The theme also overrides the default colours for the MUI Drawer component. The colours used for the AppBar are overridden in the styled variant that is used.
 
@@ -49,4 +49,4 @@ The two buttons displayed use
 
 The background box in the main display area has its colour set via the components sx property string.
 
-One of the panels contains a drop down selection to pick the theme to use. Console logging is used to display what theme is selected and also when the createTheme method is called. This demonstrates that the theme is only created once and uses the CSS variables to set the colours, causing them to chnage as the theme changes.
+One of the panels contains a drop down selection to pick the theme to use. Console logging is used to display what theme is selected and also when the createTheme method is called. This demonstrates that the theme is only created once and uses the CSS variables to set the colours, causing them to change as the theme changes.
