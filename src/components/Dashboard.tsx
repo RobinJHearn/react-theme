@@ -18,7 +18,6 @@ import Badge from "@mui/material/Badge";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Link from "@mui/material/Link";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -28,24 +27,6 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const drawerWidth: number = 240;
 
@@ -76,8 +57,6 @@ const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
   "& .MuiDrawer-paper": {
-    // background: theme.palette.primary.main, //"rgba(var(--main-background))",
-    // color: theme.palette.primary.contrastText,
     position: "relative",
     whiteSpace: "nowrap",
     width: drawerWidth,
@@ -100,6 +79,11 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
+/**
+ * Generates a theme object with defined palette and component styles.
+ *
+ * @return {Theme} The generated theme object.
+ */
 const generateTheme = (): Theme => {
   console.log("Generate Theme");
   return createTheme({
@@ -124,19 +108,27 @@ const generateTheme = (): Theme => {
 
 const defaultTheme = generateTheme();
 
+/**
+ * Renders the Dashboard component with various elements like Appbar,
+ * Drawer, List, Buttons, and theme customization options.
+ *
+ * @return {JSX.Element} The rendered Dashboard component.
+ */
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
+
   const toggleDrawer = () => {
-    setOpen(!open);
+    setOpen((prevOpen) => !prevOpen);
   };
 
   type themeOptions = "light" | "dark" | "cerys";
   const [theme, setTheme] = React.useState<themeOptions>("light");
 
   const handleThemeChange = (event: SelectChangeEvent) => {
-    setTheme(event.target.value as themeOptions);
-    document.documentElement.setAttribute("data-theme", event.target.value);
-    console.log("New Theme " + event.target.value);
+    const newTheme = event.target.value as themeOptions;
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    console.log("New Theme " + newTheme);
   };
 
   return (
@@ -212,7 +204,6 @@ export default function Dashboard() {
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{
-                    // backgroundColor: "rgba(var(--main-background))",
                     p: 2,
                     display: "flex",
                     flexDirection: "column",
@@ -265,7 +256,6 @@ export default function Dashboard() {
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
       </Box>
